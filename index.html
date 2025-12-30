@@ -128,14 +128,18 @@
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-                class="w-full h-full object-cover scale-105 animate-[pulse_10s_ease-in-out_infinite]">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/70 via-dark-900/40 to-stone-50"></div>
+                class="w-full h-full object-cover">
+            <!-- capa de degradado de la imagen -->
+            <div class="absolute inset-0 bg-dark-900/70"></div>
+            <!-- fin de la capa de degradado de la imagen -->
         </div>
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
             <p class="text-gold-400 tracking-[0.3em] uppercase text-sm mb-4 font-bold">Bienvenido al Club</p>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">Sabor, Clase <br>
-                <span class="text-serif italic text-gold-400">& Tradición</span></h1>
-            <p class="text-gray-200 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Desde alta cocina hasta el
+                <span class="text-serif italic text-gold-400">& Tradición</span>
+            </h1>
+            <p class="text-gray-200 text-lg md:text-lg font-semibold mb-10 max-w-2xl mx-auto">Desde alta cocina hasta
+                el
                 puro perfecto. Un espacio diseñado para los sentidos.</p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
                 <a href="#reservas"
