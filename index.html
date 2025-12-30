@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Royal Club - Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D22',
+                        },
+                        dark: {
+                            900: '#1a1a1a',
+                            800: '#2d2d2d',
+                        }
+                    },
+                    animation: {
+                        'modal-in': 'modalIn 0.3s ease-out forwards',
+                    },
+                    keyframes: {
+                        modalIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo para los items del menú */
+        .menu-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-dots {
+            flex: 1;
+            border-bottom: 1px dotted #ccc;
+            margin: 0 1rem;
+        }
+
+        /* Estilo personalizado para el scroll del modal (opcional, para que se vea más fino) */
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        .custom-scroll-dark::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-scroll-dark::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 font-sans text-gray-800 antialiased selection:bg-gold-400 selection:text-white">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-dark-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-serif font-bold text-white tracking-widest border-2 border-gold-400 px-2 py-1">RC<span
+                    class="text-gold-400">.</span></a>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold text-gray-300">
+                <a href="#experiencia" class="hover:text-gold-400 transition">Experiencias</a>
+                <a href="#menu" class="hover:text-gold-400 transition">Menú</a>
+                <a href="#reservas" class="hover:text-gold-400 transition">Eventos & Salones</a>
+                <a href="#contacto"
+                    class="border border-gold-400 text-gold-400 px-6 py-2 rounded-sm hover:bg-gold-400 hover:text-dark-900 transition">Reservar</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                class="w-full h-full object-cover scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/70 via-dark-900/40 to-stone-50"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <p class="text-gold-400 tracking-[0.3em] uppercase text-sm mb-4 font-bold">Bienvenido al Club</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">Sabor, Clase <br>
+                <span class="text-serif italic text-gold-400">& Tradición</span></h1>
+            <p class="text-gray-200 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Desde alta cocina hasta el
+                puro perfecto. Un espacio diseñado para los sentidos.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#reservas"
+                    class="bg-gold-400 text-dark-900 py-3 px-10 font-bold uppercase tracking-wider hover:bg-white transition duration-300">Reservar
+                    Salón</a>
+                <a href="#menu"
+                    class="border border-white text-white py-3 px-10 font-bold uppercase tracking-wider hover:bg-white hover:text-dark-900 transition duration-300">Ver
+                    Menú</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="experiencia" class="py-24 bg-stone-50 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif text-dark-900 mb-4">Nuestros Espacios</h2>
+            <div class="w-20 h-1 bg-gold-400 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+            <div class="group relative md:col-span-6 md:row-span-2 rounded-xl overflow-hidden shadow-xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+                    <h3 class="text-3xl font-serif text-white italic mb-2">Restaurante Principal</h3>
+                    <p
+                        class="text-gray-300 text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition duration-500">
+                        Gastronomía internacional con toques locales de autor.</p>
+                </div>
+            </div>
+            <div class="group relative md:col-span-6 md:row-span-1 rounded-xl overflow-hidden shadow-xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div
+                    class="absolute inset-0 bg-black/40 hover:bg-black/20 transition flex items-center justify-center border-4 border-transparent group-hover:border-gold-400/50">
+                    <div class="text-center bg-black/60 p-4 backdrop-blur-sm w-full absolute bottom-0">
+                        <h3 class="text-2xl font-serif text-gold-400">Cigar Lounge</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="group relative md:col-span-3 md:row-span-1 rounded-xl overflow-hidden shadow-xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider">Cafetería</h3>
+                </div>
+            </div>
+            <div class="group relative md:col-span-3 md:row-span-1 rounded-xl overflow-hidden shadow-xl cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 flex items-end p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 class="text-xl font-bold text-white uppercase tracking-wider">Panadería</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 bg-dark-900 text-white relative">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-gold-400 text-sm tracking-[0.4em] uppercase">Nuestra Propuesta</span>
+            <h2 class="text-5xl font-serif mt-2 mb-12">Descubre el Sabor</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button onclick="toggleModal('modal-food')"
+                    class="group relative px-8 py-4 bg-transparent border border-gray-600 hover:border-gold-400 transition rounded-sm overflow-hidden w-64 cursor-pointer">
+                    <div
+                        class="absolute inset-0 w-0 bg-gold-400 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10">
+                    </div>
+                    <div class="relative flex items-center justify-between">
+                        <span class="font-bold uppercase tracking-widest text-sm">Menú Comida</span>
+                        <i class="fas fa-utensils text-gold-400"></i>
+                    </div>
+                </button>
+                <button onclick="toggleModal('modal-wine')"
+                    class="group relative px-8 py-4 bg-transparent border border-gray-600 hover:border-gold-400 transition rounded-sm overflow-hidden w-64 cursor-pointer">
+                    <div
+                        class="absolute inset-0 w-0 bg-gold-400 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10">
+                    </div>
+                    <div class="relative flex items-center justify-between">
+                        <span class="font-bold uppercase tracking-widest text-sm">Vinos & Cigarros</span>
+                        <i class="fas fa-wine-glass text-gold-400"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservas" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-gray-200 pb-6">
+                <div>
+                    <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Planifica tu evento</span>
+                    <h2 class="text-4xl font-serif text-dark-900 mt-2">Disponibilidad de Salones</h2>
+                </div>
+                <div class="flex space-x-2 mt-6 md:mt-0 overflow-x-auto no-scrollbar">
+                    <button onclick="switchTab('dewindt')" id="tab-dewindt"
+                        class="tab-btn px-6 py-2 rounded-full border border-dark-900 bg-dark-900 text-white text-sm font-bold uppercase transition">Salón
+                        De Windt</button>
+                    <button onclick="switchTab('republicas')" id="tab-republicas"
+                        class="tab-btn px-6 py-2 rounded-full border border-gray-300 text-gray-500 text-sm font-bold uppercase hover:border-dark-900 hover:text-dark-900 transition">Repúblicas</button>
+                    <button onclick="switchTab('comandantes')" id="tab-comandantes"
+                        class="tab-btn px-6 py-2 rounded-full border border-gray-300 text-gray-500 text-sm font-bold uppercase hover:border-dark-900 hover:text-dark-900 transition">Comandantes</button>
+                </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/3 space-y-8 min-h-[500px]">
+                    <div id="content-dewindt" class="salon-content fade-in">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-6 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-white/90 backdrop-blur px-6 py-3 rounded-tr-2xl">
+                                <h3 class="font-serif text-xl font-bold">Salón De Windt</h3>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Capacidad: 200 Personas</p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                            <div class="flex justify-between items-center mb-6">
+                                <h4 class="font-bold text-lg text-gray-700">Diciembre 2025</h4>
+                                <div class="flex gap-4 text-xs font-bold uppercase tracking-wider">
+                                    <span class="flex items-center text-gray-400">
+                                        <div class="w-2 h-2 rounded-full bg-gray-300 mr-2"></div> Ocupado
+                                    </span>
+                                    <span class="flex items-center text-green-600">
+                                        <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div> Disponible
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-7 gap-4 text-center">
+                                <div class="text-xs text-gray-400 font-bold">DOM</div>
+                                <div class="text-xs text-gray-400 font-bold">LUN</div>
+                                <div class="text-xs text-gray-400 font-bold">MAR</div>
+                                <div class="text-xs text-gray-400 font-bold">MIE</div>
+                                <div class="text-xs text-gray-400 font-bold">JUE</div>
+                                <div class="text-xs text-gray-400 font-bold">VIE</div>
+                                <div class="text-xs text-gray-400 font-bold">SAB</div>
+                                <span></span><span></span>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-700 font-bold text-sm mx-auto flex items-center justify-center">1</button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-gray-200 text-gray-400 font-bold text-sm mx-auto flex items-center justify-center cursor-not-allowed group relative">2
+                                    <span
+                                        class="absolute bottom-full mb-2 hidden group-hover:block bg-dark-900 text-white text-xs py-1 px-2 rounded">Boda</span></button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-700 font-bold text-sm mx-auto flex items-center justify-center">3</button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-700 font-bold text-sm mx-auto flex items-center justify-center">4</button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-700 font-bold text-sm mx-auto flex items-center justify-center">5</button>
+                                <button
+                                    class="w-10 h-10 rounded-full bg-green-100 text-green-700 font-bold text-sm mx-auto flex items-center justify-center">6</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content-republicas" class="salon-content hidden fade-in">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-6 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-white/90 backdrop-blur px-6 py-3 rounded-tr-2xl">
+                                <h3 class="font-serif text-xl font-bold">Salón Repúblicas</h3>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Capacidad: 100 Personas</p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                            <div class="flex justify-center items-center h-48 text-gray-400 italic">Calendario del Salón
+                                Repúblicas disponible</div>
+                        </div>
+                    </div>
+                    <div id="content-comandantes" class="salon-content hidden fade-in">
+                        <div class="relative h-64 rounded-2xl overflow-hidden mb-6 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1505236858274-0942742e8756?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                class="w-full h-full object-cover">
+                            <div class="absolute bottom-0 left-0 bg-white/90 backdrop-blur px-6 py-3 rounded-tr-2xl">
+                                <h3 class="font-serif text-xl font-bold">Salón Comandantes</h3>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Capacidad: 50 Personas</p>
+                            </div>
+                        </div>
+                        <div class="bg-stone-50 rounded-2xl p-8 border border-stone-100">
+                            <div class="flex justify-center items-center h-48 text-gray-400 italic">Calendario del Salón
+                                Comandantes disponible</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/3">
+                    <div class="bg-dark-900 text-white p-8 rounded-2xl shadow-2xl sticky top-24">
+                        <h3 class="text-2xl font-serif mb-2 text-gold-400">Solicitud de Reserva</h3>
+                        <p class="text-gray-400 text-sm mb-6">Completa los datos y nuestro concierge te contactará.</p>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-500 tracking-wider">Tu
+                                    Nombre</label>
+                                <input type="text"
+                                    class="w-full bg-dark-800 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold-400 transition mt-1">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-500 tracking-wider">Salón</label>
+                                <select
+                                    class="w-full bg-dark-800 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold-400 transition mt-1">
+                                    <option>Salón De Windt</option>
+                                    <option>Salón Repúblicas</option>
+                                    <option>Salón Comandantes</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label
+                                        class="text-xs font-bold uppercase text-gray-500 tracking-wider">Fecha</label>
+                                    <input type="date"
+                                        class="w-full bg-dark-800 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold-400 transition mt-1 text-sm">
+                                </div>
+                                <div>
+                                    <label
+                                        class="text-xs font-bold uppercase text-gray-500 tracking-wider">Personas</label>
+                                    <input type="number"
+                                        class="w-full bg-dark-800 border border-gray-700 rounded p-3 text-white focus:outline-none focus:border-gold-400 transition mt-1">
+                                </div>
+                            </div>
+                            <button
+                                class="w-full bg-gold-400 text-dark-900 font-bold uppercase tracking-widest py-4 rounded mt-2 hover:bg-white transition duration-300">
+                                Enviar Solicitud
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-dark-900 text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                <a href="#" class="text-3xl font-serif font-bold text-white tracking-widest">RC<span
+                        class="text-gold-400">.</span></a>
+                <p class="text-gray-400 mt-6 max-w-sm leading-relaxed">Un destino culinario y social donde la elegancia
+                    se encuentra con la tradición. El lugar perfecto para crear memorias inolvidables.</p>
+            </div>
+            <div>
+                <h4 class="text-gold-400 font-bold uppercase tracking-widest text-sm mb-6">Contacto</h4>
+                <ul class="space-y-4 text-gray-300">
+                    <li>Av. Principal #505, Santo Domingo</li>
+                    <li>+1 (809) 555-0199</li>
+                    <li>eventos@royalclub.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gold-400 font-bold uppercase tracking-widest text-sm mb-6">Horarios</h4>
+                <ul class="space-y-4 text-gray-300">
+                    <li class="flex justify-between"><span>Lun - Jue</span> <span>12pm - 11pm</span></li>
+                    <li class="flex justify-between"><span>Vie - Sab</span> <span>12pm - 1am</span></li>
+                    <li class="flex justify-between"><span>Dom</span> <span>10am - 10pm</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 text-center pt-8 border-t border-gray-800">
+            <p class="text-gray-600 text-xs uppercase tracking-wider">&copy; 2025 Royal Club Experience. Todos los
+                derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="modal-food"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+        onclick="toggleModal('modal-food')">
+        <div class="bg-stone-50 w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scroll rounded-xl shadow-2xl relative animate-modal-in mx-4"
+            onclick="event.stopPropagation()">
+            <button onclick="toggleModal('modal-food')"
+                class="sticky top-4 right-4 float-right text-gray-400 hover:text-dark-900 text-3xl z-50 bg-stone-50 rounded-full w-8 h-8 flex items-center justify-center">&times;</button>
+
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <span class="text-gold-600 text-xs font-bold uppercase tracking-[0.3em]">The Royal Kitchen</span>
+                    <h2 class="text-4xl font-serif text-dark-900 mt-2">Menú Gastronómico</h2>
+                    <div class="w-12 h-0.5 bg-gold-400 mx-auto mt-4"></div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-dark-900 mb-6 border-b border-gray-200 pb-2 sticky top-0 bg-stone-50 py-2 z-10">
+                        Entradas & Tapas</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Carpaccio de Res Trufado</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$18.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Láminas finas, aceite de trufa blanca,
+                            parmesano reggiano y rúcula selvática.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Pulpo a la Gallega Royal</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$22.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Pimentón de la vera ahumado, papas
+                            confitadas, aceite de oliva virgen extra.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Croquetas de Jamón Ibérico</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$14.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Bechamel cremosa, jamón de bellota 100%,
+                            alioli de ajo negro.</p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-dark-900 mb-6 border-b border-gray-200 pb-2 sticky top-0 bg-stone-50 py-2 z-10">
+                        Huerta & Cuchara</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Ensalada Burrata</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$20.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Tomates heirloom, pesto genovés, piñones
+                            tostados, reducción balsámica.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Crema de Auyama Asada</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$12.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Toque de jengibre, queso de cabra, semillas
+                            caramelizadas.</p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-dark-900 mb-6 border-b border-gray-200 pb-2 sticky top-0 bg-stone-50 py-2 z-10">
+                        Platos Fuertes</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Ribeye Angus (12oz)</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$45.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">A la parrilla, mantequilla de hierbas, puré
+                            de papas trufado.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Salmón Noruego Glaseado</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$32.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Salsa de cítricos y miel, risotto de quinoa
+                            negra, vegetales baby.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Risotto de Hongos Porcini</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$28.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Arroz arborio, mezcla de hongos silvestres,
+                            aceite de trufa, tuile de parmesano.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Pechuga de Pollo Rellena</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$24.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Espinacas, queso feta, salsa de mostaza
+                            antigua, papas rostizadas.</p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-dark-900 mb-6 border-b border-gray-200 pb-2 sticky top-0 bg-stone-50 py-2 z-10">
+                        Dulce Final</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Fondant de Chocolate</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$10.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Chocolate belga 70%, helado de vainilla
+                            bourbon.</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg">Cheesecake de Maracuyá</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold">$9.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Base de galleta crujiente, coulis de fruta
+                            fresca.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8 pt-8 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-4">*Precios no incluyen impuestos ni propina legal.</p>
+                    <button
+                        class="bg-dark-900 text-white px-8 py-3 rounded text-sm uppercase tracking-widest hover:bg-gold-600 transition">Descargar
+                        PDF Completo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-wine"
+        class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+        onclick="toggleModal('modal-wine')">
+        <div class="bg-stone-900 text-gray-200 w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scroll-dark rounded-xl shadow-2xl relative animate-modal-in mx-4 border border-gold-600/30"
+            onclick="event.stopPropagation()">
+            <button onclick="toggleModal('modal-wine')"
+                class="sticky top-4 right-4 float-right text-gray-400 hover:text-white text-3xl z-50 bg-stone-900 rounded-full w-8 h-8 flex items-center justify-center">&times;</button>
+
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-[0.3em]">Cava & Humidor</span>
+                    <h2 class="text-4xl font-serif text-white mt-2">Vinos & Cigarros</h2>
+                    <div class="w-12 h-0.5 bg-gold-400 mx-auto mt-4"></div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-gold-400 mb-6 border-b border-gray-700 pb-2 sticky top-0 bg-stone-900 py-2 z-10">
+                        Vinos Tintos</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Ribera del Duero</span> <span
+                                    class="text-xs text-gray-500 ml-2">Reserva 2018</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$65.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Cabernet Sauvignon</span> <span
+                                    class="text-xs text-gray-500 ml-2">Napa Valley</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$80.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Malbec Premium</span> <span
+                                    class="text-xs text-gray-500 ml-2">Mendoza</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$55.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Pinot Noir</span> <span
+                                    class="text-xs text-gray-500 ml-2">Borgoña</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$95.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-gold-400 mb-6 border-b border-gray-700 pb-2 sticky top-0 bg-stone-900 py-2 z-10">
+                        Blancos & Burbujas</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Albariño</span> <span
+                                    class="text-xs text-gray-500 ml-2">Rías Baixas</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$48.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Chardonnay</span> <span
+                                    class="text-xs text-gray-500 ml-2">Chablis</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$70.00</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Champagne Brut</span> <span
+                                    class="text-xs text-gray-500 ml-2">Reims</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$120.00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-gold-400 mb-6 border-b border-gray-700 pb-2 sticky top-0 bg-stone-900 py-2 z-10">
+                        The Humidor</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Cohiba Siglo VI</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$45.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Cuba | Fortaleza Media-Alta | Formato
+                            Cañonazo</p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Arturo Fuente Opus X</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$55.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Dom. Rep | Fortaleza Alta | Formato Robusto
+                        </p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Davidoff Nicaragua</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$38.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Nicaragua | Fortaleza Media | Formato Toro
+                        </p>
+
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Montecristo No. 2</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$42.00</div>
+                        </div>
+                        <p class="text-sm text-gray-500 italic -mt-2 mb-4">Cuba | Fortaleza Media-Alta | Formato Torpedo
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-10">
+                    <h3
+                        class="text-xl font-serif italic text-gold-400 mb-6 border-b border-gray-700 pb-2 sticky top-0 bg-stone-900 py-2 z-10">
+                        Destilados Premium</h3>
+                    <div class="space-y-4">
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Macallan 18 Años</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$45.00 / oz</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Ron Zacapa XO</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$25.00 / oz</div>
+                        </div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-lg text-white">Hennessy XO</span></div>
+                            <div class="menu-dots border-gray-700"></div>
+                            <div class="font-serif font-bold text-gold-400">$35.00 / oz</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de Tabs
+        function switchTab(salonId) {
+            document.querySelectorAll('.salon-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('content-' + salonId).classList.remove('hidden');
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-dark-900', 'text-white', 'border-dark-900');
+                btn.classList.add('text-gray-500', 'border-gray-300');
+            });
+            const activeBtn = document.getElementById('tab-' + salonId);
+            activeBtn.classList.remove('text-gray-500', 'border-gray-300');
+            activeBtn.classList.add('bg-dark-900', 'text-white', 'border-dark-900');
+        }
+
+        // Lógica de Modales
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const isHidden = modal.classList.contains('hidden');
+            if (isHidden) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+
+</html>
