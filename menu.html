@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Royal Club - Nuestro Menú</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['"Lato"', 'sans-serif'], },
+                    colors: { gold: { 400: '#D4AF37', 500: '#C5A028', 600: '#B08D22', }, dark: { 900: '#1a1a1a', 800: '#2d2d2d', } }
+                }
+            }
+        }
+    </script>
+    <style>
+        .menu-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-dots {
+            flex: 1;
+            border-bottom: 1px dotted #ccc;
+            margin: 0 1rem;
+        }
+
+        .menu-dots-dark {
+            border-bottom: 1px dotted #4b5563;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 font-sans text-gray-800 antialiased selection:bg-gold-400 selection:text-white">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-dark-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-serif font-bold text-white tracking-widest border-2 border-gold-400 px-2 py-1">RC<span
+                    class="text-gold-400">.</span></a>
+            <div
+                class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-bold text-gray-300 relative items-center">
+                <a href="index.html#experiencia" class="hover:text-gold-400 transition">Experiencias</a>
+                <a href="menu.html" class="text-gold-400 transition">Menú</a>
+                <a href="index.html#reservas" class="hover:text-gold-400 transition">Eventos & Salones</a>
+                <a href="index.html#contacto"
+                    class="border border-gold-400 text-gold-400 px-6 py-2 rounded-sm hover:bg-gold-400 hover:text-dark-900 transition">Reservar</a>
+            </div>
+        </div>
+    </nav>
+    <header class="relative h-[65vh] min-h-[500px] flex items-center justify-center overflow-hidden group">
+        <!-- Contenedor del Carrusel -->
+        <div id="hero-carousel"
+            class="absolute inset-0 z-0 w-full h-full flex transition-transform duration-700 ease-in-out">
+            <!-- Slide 1 -->
+            <div class="min-w-full h-full relative flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-dark-900/60"></div>
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16 animate-fade-in-up">
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Especialidad de
+                        la Casa</span>
+                    <h1 class="text-5xl md:text-7xl font-serif text-white mb-4 leading-tight">Ribeye <span
+                            class="text-serif italic text-gold-400">Angus</span></h1>
+                    <p class="text-gray-200 text-lg md:text-xl font-semibold mb-6 max-w-2xl mx-auto">A la parrilla,
+                        mantequilla de hierbas, puré de papas trufado.</p>
+                    <div class="text-3xl font-serif text-gold-400 font-bold">$45.00</div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="min-w-full h-full relative flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-dark-900/60"></div>
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Fresco &
+                        Delicado</span>
+                    <h1 class="text-5xl md:text-7xl font-serif text-white mb-4 leading-tight">Salmón <span
+                            class="text-serif italic text-white">Noruego</span></h1>
+                    <p class="text-gray-200 text-lg md:text-xl font-semibold mb-6 max-w-2xl mx-auto">Salsa de cítricos y
+                        miel, sobre un cremoso risotto de quinoa negra.</p>
+                    <div class="text-3xl font-serif text-gold-400 font-bold">$32.00</div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="min-w-full h-full relative flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+                    class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-dark-900/60"></div>
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+                    <span class="text-gold-400 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Entradas
+                        Premium</span>
+                    <h1 class="text-5xl md:text-7xl font-serif text-white mb-4 leading-tight">Carpaccio <span
+                            class="text-serif italic text-gold-400">Trufado</span></h1>
+                    <p class="text-gray-200 text-lg md:text-xl font-semibold mb-6 max-w-2xl mx-auto">Láminas finas,
+                        aceite de trufa blanca, parmesano reggiano y rúcula selvática.</p>
+                    <div class="text-3xl font-serif text-gold-400 font-bold">$18.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de Carrusel (Prev / Next) -->
+        <button onclick="prevSlide()"
+            class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-gold-400 hover:text-dark-900 transition backdrop-blur-sm opacity-0 group-hover:opacity-100 cursor-pointer">
+            <i class="fas fa-chevron-left text-xl"></i>
+        </button>
+        <button onclick="nextSlide()"
+            class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-gold-400 hover:text-dark-900 transition backdrop-blur-sm opacity-0 group-hover:opacity-100 cursor-pointer">
+            <i class="fas fa-chevron-right text-xl"></i>
+        </button>
+
+        <!-- Puntos Indicadores -->
+        <div class="absolute bottom-8 z-20 flex gap-3 left-1/2 -translate-x-1/2">
+            <button onclick="goToSlide(0)"
+                class="w-2.5 h-2.5 rounded-full bg-gold-400 transition carousel-indicator"></button>
+            <button onclick="goToSlide(1)"
+                class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition carousel-indicator"></button>
+            <button onclick="goToSlide(2)"
+                class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition carousel-indicator"></button>
+        </div>
+    </header>
+    <section class="py-20 bg-stone-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <span class="text-gold-600 text-xs font-bold uppercase tracking-[0.3em]">The Royal Kitchen</span>
+                <h2 class="text-4xl font-serif text-dark-900 mt-2">Menú Gastronómico</h2>
+                <div class="w-12 h-0.5 bg-gold-400 mx-auto mt-4"></div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-dark-900 mb-8 border-b border-gray-200 pb-2">Entradas & Tapas
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Carpaccio de Res Trufado</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$18.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Láminas finas, aceite de trufa blanca, parmesano reggiano y
+                            rúcula selvática.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Pulpo a la Gallega Royal</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$22.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Pimentón de la vera ahumado, papas confitadas, aceite de
+                            oliva virgen extra.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Croquetas de Jamón Ibérico</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$14.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Bechamel cremosa, jamón de bellota 100%, alioli de ajo
+                            negro.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-dark-900 mb-8 border-b border-gray-200 pb-2">Huerta & Cuchara
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Ensalada Burrata</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$20.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Tomates heirloom, pesto genovés, piñones tostados,
+                            reducción balsámica.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Crema de Auyama Asada</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$12.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Toque de jengibre, queso de cabra, semillas caramelizadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-dark-900 mb-8 border-b border-gray-200 pb-2">Platos Fuertes
+                </h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Ribeye Angus (12oz)</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$45.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">A la parrilla, mantequilla de hierbas, puré de papas
+                            trufado.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Salmón Noruego Glaseado</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$32.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Salsa de cítricos y miel, risotto de quinoa negra,
+                            vegetales baby.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Risotto de Hongos Porcini</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$28.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Arroz arborio, mezcla de hongos silvestres, aceite de
+                            trufa, tuile de parmesano.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Pechuga de Pollo Rellena</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$24.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Espinacas, queso feta, salsa de mostaza antigua, papas
+                            rostizadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-0">
+                <h3 class="text-2xl font-serif italic text-dark-900 mb-8 border-b border-gray-200 pb-2">Dulce Final</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Fondant de Chocolate</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$10.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Chocolate belga 70%, helado de vainilla bourbon.</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Cheesecake de Maracuyá</span></div>
+                            <div class="menu-dots"></div>
+                            <div class="font-serif font-bold text-lg">$9.00</div>
+                        </div>
+                        <p class="text-gray-500 italic mt-1">Base de galleta crujiente, coulis de fruta fresca.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-dark-900 text-white relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <span class="text-gold-400 text-xs font-bold uppercase tracking-[0.3em]">Cava & Humidor</span>
+                <h2 class="text-4xl font-serif mt-2">Vinos & Cigarros</h2>
+                <div class="w-12 h-0.5 bg-gold-400 mx-auto mt-4"></div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-gold-400 mb-8 border-b border-gray-700 pb-2">Vinos Tintos
+                </h3>
+                <div class="space-y-6">
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Ribera del Duero</span> <span
+                                class="text-sm text-gray-400 ml-2">Reserva 2018</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$65.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Cabernet Sauvignon</span> <span
+                                class="text-sm text-gray-400 ml-2">Napa Valley</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$80.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Malbec Premium</span> <span
+                                class="text-sm text-gray-400 ml-2">Mendoza</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$55.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Pinot Noir</span> <span
+                                class="text-sm text-gray-400 ml-2">Borgoña</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$95.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-gold-400 mb-8 border-b border-gray-700 pb-2">Blancos &
+                    Burbujas</h3>
+                <div class="space-y-6">
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Albariño</span> <span
+                                class="text-sm text-gray-400 ml-2">Rías Baixas</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$48.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Chardonnay</span> <span
+                                class="text-sm text-gray-400 ml-2">Chablis</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$70.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Champagne Brut</span> <span
+                                class="text-sm text-gray-400 ml-2">Reims</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$120.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-gold-400 mb-8 border-b border-gray-700 pb-2">The Humidor</h3>
+                <div class="space-y-6">
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Cohiba Siglo VI</span></div>
+                            <div class="menu-dots menu-dots-dark"></div>
+                            <div class="font-serif font-bold text-lg text-gold-400">$45.00</div>
+                        </div>
+                        <p class="text-gray-400 italic mt-1">Cuba | Fortaleza Media-Alta | Formato Cañonazo</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Arturo Fuente Opus X</span></div>
+                            <div class="menu-dots menu-dots-dark"></div>
+                            <div class="font-serif font-bold text-lg text-gold-400">$55.00</div>
+                        </div>
+                        <p class="text-gray-400 italic mt-1">Dom. Rep | Fortaleza Alta | Formato Robusto</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Davidoff Nicaragua</span></div>
+                            <div class="menu-dots menu-dots-dark"></div>
+                            <div class="font-serif font-bold text-lg text-gold-400">$38.00</div>
+                        </div>
+                        <p class="text-gray-400 italic mt-1">Nicaragua | Fortaleza Media | Formato Toro</p>
+                    </div>
+                    <div>
+                        <div class="menu-item">
+                            <div><span class="font-bold font-serif text-xl">Montecristo No. 2</span></div>
+                            <div class="menu-dots menu-dots-dark"></div>
+                            <div class="font-serif font-bold text-lg text-gold-400">$42.00</div>
+                        </div>
+                        <p class="text-gray-400 italic mt-1">Cuba | Fortaleza Media-Alta | Formato Torpedo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-16">
+                <h3 class="text-2xl font-serif italic text-gold-400 mb-8 border-b border-gray-700 pb-2">Destilados
+                    Premium</h3>
+                <div class="space-y-6">
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Macallan 18 Años</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$45.00 / oz</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Ron Zacapa XO</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$25.00 / oz</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Hennessy XO</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$35.00 / oz</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-0">
+                <h3 class="text-2xl font-serif italic text-gold-400 mb-8 border-b border-gray-700 pb-2">Licores &
+                    Digestivos</h3>
+                <div class="space-y-6">
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Baileys Irish Cream</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$12.00 / oz</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Amaretto Disaronno</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$14.00 / oz</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Licor 43</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$12.00 / oz</div>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="font-bold font-serif text-xl">Grand Marnier</span></div>
+                        <div class="menu-dots menu-dots-dark"></div>
+                        <div class="font-serif font-bold text-lg text-gold-400">$15.00 / oz</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 pt-12 border-t border-gray-800">
+                <button
+                    class="bg-gold-400 text-dark-900 px-8 py-3 rounded text-sm font-bold uppercase tracking-widest hover:bg-white transition">Descargar
+                    PDF Completo</button>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-dark-900 text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="col-span-1 md:col-span-2">
+                <a href="index.html" class="text-3xl font-serif font-bold text-white tracking-widest">RC<span
+                        class="text-gold-400">.</span></a>
+                <p class="text-gray-400 mt-6 max-w-sm leading-relaxed">Un destino culinario y social donde la elegancia
+                    se encuentra con la tradición. El lugar perfecto para crear memorias inolvidables.</p>
+            </div>
+            <div>
+                <h4 class="text-gold-400 font-bold uppercase tracking-widest text-sm mb-6">Contacto</h4>
+                <ul class="space-y-4 text-gray-300">
+                    <li>Av. Principal #505, Santo Domingo</li>
+                    <li>+1 (809) 555-0199</li>
+                    <li>eventos@royalclub.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-gold-400 font-bold uppercase tracking-widest text-sm mb-6">Horarios</h4>
+                <ul class="space-y-4 text-gray-300">
+                    <li class="flex justify-between"><span>Lun - Jue</span> <span>12pm - 11pm</span></li>
+                    <li class="flex justify-between"><span>Vie - Sab</span> <span>12pm - 1am</span></li>
+                    <li class="flex justify-between"><span>Dom</span> <span>10am - 10pm</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 text-center pt-8 border-t border-gray-800">
+            <p class="text-gray-600 text-xs uppercase tracking-wider">&copy; 2025 Royal Club Experience. Todos los
+                derechos reservados.</p>
+        </div>
+    </footer>
+    <div class="fixed top-1/2 right-0 -translate-y-1/2 z-50 flex flex-col gap-2 items-end">
+        <a href="https://facebook.com" target="_blank"
+            class="group flex items-center justify-end w-12 h-12 bg-gray-800 text-white rounded-l-lg hover:bg-[#1877F2] hover:w-36 transition-all duration-300 shadow-lg overflow-hidden relative">
+            <span
+                class="absolute left-4 opacity-0 group-hover:opacity-100 transition-opacity font-bold whitespace-nowrap delay-100">Facebook</span>
+            <div class="w-12 h-12 flex items-center justify-center absolute right-0 min-w-[3rem]"><i
+                    class="fab fa-facebook-f text-lg"></i></div>
+        </a>
+        <a href="https://instagram.com" target="_blank"
+            class="group flex items-center justify-end w-12 h-12 bg-gray-800 text-white rounded-l-lg hover:bg-[#E4405F] hover:w-36 transition-all duration-300 shadow-lg overflow-hidden relative">
+            <span
+                class="absolute left-4 opacity-0 group-hover:opacity-100 transition-opacity font-bold whitespace-nowrap delay-100">Instagram</span>
+            <div class="w-12 h-12 flex items-center justify-center absolute right-0 min-w-[3rem]"><i
+                    class="fab fa-instagram text-lg"></i></div>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank"
+            class="group flex items-center justify-end w-12 h-12 bg-gray-800 text-white rounded-l-lg hover:bg-[#25D366] hover:w-36 transition-all duration-300 shadow-lg overflow-hidden relative">
+            <span
+                class="absolute left-4 opacity-0 group-hover:opacity-100 transition-opacity font-bold whitespace-nowrap delay-100">WhatsApp</span>
+            <div class="w-12 h-12 flex items-center justify-center absolute right-0 min-w-[3rem]"><i
+                    class="fab fa-whatsapp text-lg"></i></div>
+        </a>
+    </div>
+
+    <script>
+        // Lógica del Carrusel del Menú
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const carousel = document.getElementById('hero-carousel');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        let autoPlayInterval;
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            indicators.forEach((ind, index) => {
+                if (index === currentSlide) {
+                    ind.classList.remove('bg-white/50');
+                    ind.classList.add('bg-gold-400');
+                } else {
+                    ind.classList.remove('bg-gold-400');
+                    ind.classList.add('bg-white/50');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        function startAutoPlay() {
+            // Cambia de imagen cada 6 segundos automáticamente
+            autoPlayInterval = setInterval(nextSlide, 6000);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            if (carousel) {
+                startAutoPlay();
+            }
+        });
+    </script>
+</body>
+
+</html>
