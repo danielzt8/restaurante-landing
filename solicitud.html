@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de Espacios </title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#121212',
+              card: '#1a1a1a',
+              border: '#2a2a2a',
+              accent: '#d97706', // Ámbar elegante
+              accentHover: '#b45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark text-zinc-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-accent selection:text-white">
+
+  <!-- Barra de Navegación -->
+  <nav class="bg-brand-dark/90 backdrop-blur-md border-b border-brand-border fixed top-0 w-full z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center space-x-3">
+          <span class="text-xl font-serif tracking-wider font-bold text-brand-accent">RESTAURANTE</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="index.html" class="text-zinc-400 hover:text-brand-accent transition-colors">Inicio</a>
+          <a href="menu.html" class="text-zinc-400 hover:text-brand-accent transition-colors">Menú</a>
+          <a href="galeria.html" class="text-zinc-400 hover:text-brand-accent transition-colors">Galería</a>
+          <a href="solicitud.html" class="text-brand-accent font-semibold border-b-2 border-brand-accent pb-1">Solicitar Espacios</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-4xl mx-auto px-4 pt-32 pb-16 w-full flex-grow">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2 block">Gestión institucional</span>
+      <h1 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-white">Formulario de Solicitud de Espacios</h1>
+     
+    </div>
+
+    <!-- Panel Informativo: Normativa y Prohibiciones -->
+    <div class="mb-10 bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 text-sm text-zinc-300 space-y-6 shadow-xl">
+      <div>
+        <h3 class="font-serif text-lg text-amber-400 mb-3 flex items-center gap-2">
+          <svg class="w-5 h-5 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          Prohibiciones y Normativa del Solicitante
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-zinc-400">
+          <li>No colocar montajes sobre la plataforma sin protección adecuada y autorización previa.</li>
+          <li>Prohibido excederse del horario prefijado o consumir alimentos y/o bebidas dentro de la sala.</li>
+          <li>Evitar ruidos excesivos (voces altas, música alta) en las diferentes áreas de la Biblioteca.</li>
+          <li>No pegar papeles, material adhesivo, clavar en paredes ni desmontar mobiliario de la sala.</li>
+          <li>Los invitados deben permanecer estrictamente en el área asignada de la actividad. No se permiten plantas vivas.</li>
+        </ul>
+      </div>
+
+      <div class="border-t border-brand-border pt-6">
+        <h3 class="font-serif text-lg text-zinc-100 mb-3">Observaciones Importantes</h3>
+        <ul class="list-disc pl-5 space-y-2 text-zinc-400">
+          <li>La institución no cuenta con planta eléctrica, personal de protocolo ni servicios adicionales.</li>
+          <li>El representante asumirá la total responsabilidad económica por daños a personas, estructuras o mobiliario.</li>
+          <li>En caso de cancelación, el aporte económico no es reembolsable; se mantendrá en fondo para la reposición u otra actividad.</li>
+          <li>El desmontaje debe realizarse en un plazo máximo de 24 horas de haber finalizado el acto.</li>
+          <li><strong class="text-amber-400">Nota de pago:</strong> El pago del aporte económico debe realizarse al menos cinco (5) días antes de la actividad. Cualquier violación a estas normas dará lugar a la suspensión inmediata.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Formulario de Solicitud -->
+    <form action="#" method="POST" class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-10 space-y-8 shadow-2xl">
+      
+      <!-- Sección 1: Datos de la Institución -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-serif font-semibold text-brand-accent border-b border-brand-border pb-3">1. Institución Solicitante / Persona Física</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Nombre de la Institución / Persona</label>
+            <input type="text" name="nombre" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Representante</label>
+            <input type="text" name="representante" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-3">Tipo de Institución</label>
+            <div class="flex flex-wrap gap-6 text-sm text-zinc-300">
+              <label class="inline-flex items-center cursor-pointer"><input type="radio" name="tipo_institucion" value="Comercial" class="accent-amber-600 mr-2"> Comercial</label>
+              <label class="inline-flex items-center cursor-pointer"><input type="radio" name="tipo_institucion" value="Oficial" class="accent-amber-600 mr-2"> Oficial</label>
+              <label class="inline-flex items-center cursor-pointer"><input type="radio" name="tipo_institucion" value="Internacional" class="accent-amber-600 mr-2"> Internacional</label>
+              <label class="inline-flex items-center cursor-pointer"><input type="radio" name="tipo_institucion" value="Sin fines de lucro" class="accent-amber-600 mr-2"> Sin fines de lucro</label>
+              <label class="inline-flex items-center cursor-pointer"><input type="radio" name="tipo_institucion" value="Persona física" class="accent-amber-600 mr-2"> Persona física</label>
+            </div>
+          </div>
+
+          <div class="md:col-span-2">
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Dirección</label>
+            <input type="text" name="direccion" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Teléfono</label>
+            <input type="tel" name="telefono" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Email</label>
+            <input type="email" name="email" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">RNC</label>
+            <input type="text" name="rnc" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección 2: Evento a Realizar -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-lg font-serif font-semibold text-brand-accent border-b border-brand-border pb-3">2. Evento a Realizar</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="md:col-span-2">
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Motivo de la actividad</label>
+            <input type="text" name="motivo" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Fecha de Inicio</label>
+            <input type="date" name="fecha_inicio" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-brand-accent transition-colors color-scheme-dark">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Fecha de Término</label>
+            <input type="date" name="fecha_termino" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Cantidad estimada de asistentes</label>
+            <input type="number" name="asistentes" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-colors">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Horarios (Actividad / Montaje)</label>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="time" name="hora_actividad" placeholder="Actividad" title="Hora de Actividad" class="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-3 text-zinc-100 focus:outline-none focus:border-brand-accent transition-colors">
+              <input type="time" name="hora_montaje" placeholder="Montaje" title="Hora de Montaje" class="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-3 text-zinc-100 focus:outline-none focus:border-brand-accent transition-colors">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección 3: Espacio Solicitado y Pago -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-lg font-serif font-semibold text-brand-accent border-b border-brand-border pb-3">3. Espacio Solicitado y Pago</h3>
+        
+        <div class="space-y-3">
+          <label class="block text-xs uppercase tracking-wider text-zinc-400">Seleccione el espacio:</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-zinc-300">
+            <label class="flex items-center p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer hover:border-brand-accent transition-colors">
+              <input type="radio" name="espacio" value="Auditorio Juan Bosch (380 P)" class="accent-amber-600 mr-3"> Auditorio Juan Bosch (380 P)
+            </label>
+            <label class="flex items-center p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer hover:border-brand-accent transition-colors">
+              <input type="radio" name="espacio" value="Sala Aída Cartagena Portalatín (150 P)" class="accent-amber-600 mr-3"> Sala Aída Cartagena Portalatín (150 P)
+            </label>
+            <label class="flex items-center p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer hover:border-brand-accent transition-colors">
+              <input type="radio" name="espacio" value="Sala Carmen Natalia (40 P)" class="accent-amber-600 mr-3"> Sala Carmen Natalia (40 P)
+            </label>
+            <label class="flex items-center p-3 bg-brand-dark border border-brand-border rounded-xl cursor-pointer hover:border-brand-accent transition-colors">
+              <input type="radio" name="espacio" value="Otro espacio" class="accent-amber-600 mr-3"> Otro espacio
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <label class="block text-xs uppercase tracking-wider text-zinc-400 mb-3">Forma de pago:</label>
+          <div class="flex flex-wrap gap-6 text-sm text-zinc-300">
+            <label class="inline-flex items-center cursor-pointer"><input type="radio" name="forma_pago" value="Cheque" class="accent-amber-600 mr-2"> Cheque</label>
+            <label class="inline-flex items-center cursor-pointer"><input type="radio" name="forma_pago" value="Transferencia" class="accent-amber-600 mr-2"> Transferencia</label>
+            <label class="inline-flex items-center cursor-pointer"><input type="radio" name="forma_pago" value="Efectivo" class="accent-amber-600 mr-2"> Efectivo</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón de Envío -->
+      <div class="pt-6 border-t border-brand-border">
+        <button type="submit" class="w-full bg-brand-accent hover:bg-brand-accentHover text-zinc-950 font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-amber-600/10">
+          Enviar Solicitud
+        </button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="bg-brand-card border-t border-brand-border py-8 text-center text-zinc-500 text-xs">
+    <p>&copy; 2026 Biblioteca Nacional Pedro Henríquez Ureña (BNPHU) &mdash; Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
